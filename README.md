@@ -1,5 +1,4 @@
 # lumo-misc
-Various Lumo ClojureScript REPL experiments
 
 ```
 npm i -g lumo
