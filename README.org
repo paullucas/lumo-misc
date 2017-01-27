@@ -2,6 +2,5 @@
 
 #+BEGIN_SRC
 npm i -g lumo
-chmod +x spawn-ls.cljs
-chmod +x http.cljs
+chmod +x spawn-ls.cljs http.cljs open_sesame.cljs
 #+END_SRC
