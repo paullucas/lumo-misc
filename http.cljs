@@ -5,11 +5,11 @@
 (def html (.readFileSync fs "index.html"))
 
 (.listen
- (.createServer
-  http (fn [req res]
-         (.writeHead
-          res 200 (clj->js {"Content-Type" "text/html"}))
-         (.end res html)))
+ (->>
+  (fn [req res]
+    (.writeHead res 200 #js {"Content-Type" "text/html"})
+    (.end res html))
+  (.createServer http))
  3000 "127.0.0.1")
 
 (println "Now listening on localhost:3000")
