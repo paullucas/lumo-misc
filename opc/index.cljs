@@ -27,7 +27,8 @@
    stream
    (create-message channel command data)))
 
-(defn create-pixels-message [channel pixels]
+(defn create-pixels-message
+  [channel pixels]
   (create-message channel 0 pixels))
 
 (defn write-pixels
