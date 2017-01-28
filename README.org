@@ -5,4 +5,4 @@ npm i -g lumo
 chmod +x spawn-ls.cljs http.cljs open_sesame.cljs
 #+END_SRC
 
-** /opc is a ClojureScript rewrite of [[https://github.com/parshap/js-opc][js-opc]] (WIP)
+[[https://github.com/paullucas/lumo-misc/tree/master/opc][opc/]] is a rewrite of [[https://github.com/parshap/js-opc][js-opc]] (WIP)
