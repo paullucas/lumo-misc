@@ -6,5 +6,3 @@ chmod +x spawn-ls.cljs http.cljs open_sesame.cljs http.cljs get.cljs ip.cljs
 #+END_SRC
 
 [[https://github.com/paullucas/lumo-misc/tree/master/ctest][ctest/]] is a test project using the [[https://github.com/eginez/calvin][Calvin]] build tool.
-
-[[https://github.com/paullucas/lumo-misc/tree/master/opc][opc/]] is a rewrite of [[https://github.com/parshap/js-opc][js-opc]] (WIP)
