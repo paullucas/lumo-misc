@@ -1,4 +1,4 @@
-* Quick start
+* Quick Start
 #+BEGIN_SRC
 npm install
 npm start

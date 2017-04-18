@@ -1,13 +1,22 @@
 * lumo-misc
-
-*** Scripts
+*** Quick Start
 
 #+BEGIN_SRC
 npm i -g lumo
 chmod +x apitest.cljs args.cljs get.cljs http.cljs hue.cljs ip.cljs open_sesame.cljs spawn-ls.cljs
 #+END_SRC
 
+*** Scripts
+- [[https://github.com/paullucas/lumo-misc/blob/master/apitest.cljs][apitest.cljs]]
+- [[https://github.com/paullucas/lumo-misc/blob/master/args.cljs][args.cljs]]
+- [[https://github.com/paullucas/lumo-misc/blob/master/get.cljs][get.cljs]]
+- [[https://github.com/paullucas/lumo-misc/blob/master/http.cljs][http.cljs]]
+- [[https://github.com/paullucas/lumo-misc/blob/master/hue.cljs][hue.cljs]]
+- [[https://github.com/paullucas/lumo-misc/blob/master/ip.cljs][ip.cljs]]
+- [[https://github.com/paullucas/lumo-misc/blob/master/open_sesame.cljs][open_sesame.cljs]]
+- [[https://github.com/paullucas/lumo-misc/blob/master/spawn-ls.cljs][spawn-ls.cljs]]
+
 *** Directories
-- [[https://github.com/paullucas/lumo-misc/tree/master/rethinkdb][rethinkdb/]] is an example Node project for interacting with Rethinkdb
+- [[https://github.com/paullucas/lumo-misc/tree/master/rethinkdb][rethinkdb/]] is an example Node project for interacting with [[https://www.rethinkdb.com/][RethinkDB]]
 - [[https://github.com/paullucas/lumo-misc/tree/master/ctest][ctest/]] is a test project using the [[https://github.com/eginez/calvin][Calvin]] build tool (WIP)
 - [[https://github.com/paullucas/lumo-misc/tree/master/emacs-test][emacs-test/]] is a set of various Emacs-related scripts/tests (WIP)
