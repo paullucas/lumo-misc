@@ -7,14 +7,15 @@ chmod +x apitest.cljs args.cljs get.cljs http.cljs hue.cljs ip.cljs open_sesame.
 #+END_SRC
 
 *** Scripts
-- [[https://github.com/paullucas/lumo-misc/blob/master/apitest.cljs][apitest.cljs]]
-- [[https://github.com/paullucas/lumo-misc/blob/master/args.cljs][args.cljs]]
-- [[https://github.com/paullucas/lumo-misc/blob/master/get.cljs][get.cljs]]
-- [[https://github.com/paullucas/lumo-misc/blob/master/http.cljs][http.cljs]]
-- [[https://github.com/paullucas/lumo-misc/blob/master/hue.cljs][hue.cljs]]
-- [[https://github.com/paullucas/lumo-misc/blob/master/ip.cljs][ip.cljs]]
-- [[https://github.com/paullucas/lumo-misc/blob/master/open_sesame.cljs][open_sesame.cljs]]
-- [[https://github.com/paullucas/lumo-misc/blob/master/spawn-ls.cljs][spawn-ls.cljs]]
+| Name             | Description                              |
+| [[https://github.com/paullucas/lumo-misc/blob/master/apitest.cljs][apitest.cljs]]     | Run tests on an API (used in [[https://github.com/paullucas/eventstate/blob/master/apitest.cljs][eventstate]]) |
+| [[https://github.com/paullucas/lumo-misc/blob/master/args.cljs][args.cljs]]        | Print command line arguments             |
+| [[https://github.com/paullucas/lumo-misc/blob/master/get.cljs][get.cljs]]         | GET request                              |
+| [[https://github.com/paullucas/lumo-misc/blob/master/http.cljs][http.cljs]]        | HTTP server (serving [[https://github.com/paullucas/lumo-misc/blob/master/index.html][index.html]])         |
+| [[https://github.com/paullucas/lumo-misc/blob/master/hue.cljs][hue.cljs]]         | Send commands to Philips Hue Bridge      |
+| [[https://github.com/paullucas/lumo-misc/blob/master/ip.cljs][ip.cljs]]          | Print IP Address, Hostname, etc          |
+| [[https://github.com/paullucas/lumo-misc/blob/master/open_sesame.cljs][open_sesame.cljs]] | HTTP server that runs process on request |
+| [[https://github.com/paullucas/lumo-misc/blob/master/spawn-ls.cljs][spawn-ls.cljs]]    | Run 'ls' in current directory            |
 
 *** Directories
 - [[https://github.com/paullucas/lumo-misc/tree/master/rethinkdb][rethinkdb/]] is an example Node project for interacting with [[https://www.rethinkdb.com/][RethinkDB]]
