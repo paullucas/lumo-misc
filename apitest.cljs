@@ -10,17 +10,18 @@
 (defn post-req [url data]
   (new js/Promise
        (fn [resolve]
-         (let [req (.request http
+         (let [json (.stringify js/JSON (clj->js data))
+               req (.request http
                              (clj->js
                               {:hostname "127.0.0.1"
                                :port 3000
                                :path url
                                :method "POST"
                                :headers {:Content-Type "application/json"
-                                         :Content-Length (.byteLength js/Buffer data)}})
+                                         :Content-Length (.byteLength js/Buffer json)}})
                              (fn [res]
                                (.on res "data" resolve)))]
-           (.write req data)
+           (.write req json)
            (.end req)))))
 
 (defn get-req [url]
@@ -32,8 +33,7 @@
                  (.on res "data" resolve))))))
 
 (defn run-test [test-name post-url post-data test-url test-fn]
-  (-> (post-req post-url
-                (.stringify js/JSON (clj->js post-data)))
+  (-> (post-req post-url post-data)
       (.then (fn [] (sleep 1000)))
       (.then (fn [] (get-req test-url)))
       (.then (fn [get-res]
