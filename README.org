@@ -1,8 +1,13 @@
 * lumo-misc
 
+*** Scripts
+
 #+BEGIN_SRC
 npm i -g lumo
 chmod +x apitest.cljs args.cljs get.cljs http.cljs hue.cljs ip.cljs open_sesame.cljs spawn-ls.cljs
 #+END_SRC
 
-[[https://github.com/paullucas/lumo-misc/tree/master/ctest][ctest/]] is a test project using the [[https://github.com/eginez/calvin][Calvin]] build tool.
+*** Directories
+- [[https://github.com/paullucas/lumo-misc/tree/master/rethinkdb][rethinkdb/]] is an example Node project for interacting with Rethinkdb
+- [[https://github.com/paullucas/lumo-misc/tree/master/ctest][ctest/]] is a test project using the [[https://github.com/eginez/calvin][Calvin]] build tool (WIP)
+- [[https://github.com/paullucas/lumo-misc/tree/master/emacs-test][emacs-test/]] is a set of various Emacs-related scripts/tests (WIP)
