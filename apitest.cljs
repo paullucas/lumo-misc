@@ -34,8 +34,8 @@
 
 (defn run-test [test-name post-url post-data test-url test-fn]
   (-> (post-req post-url post-data)
-      (.then (fn [] (sleep 1000)))
-      (.then (fn [] (get-req test-url)))
+      (.then #(sleep 1000))
+      (.then #(get-req test-url))
       (.then (fn [get-res]
                (println
                 (str test-name
