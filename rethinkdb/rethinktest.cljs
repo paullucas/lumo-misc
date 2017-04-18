@@ -1,4 +1,3 @@
-#!/usr/bin/env lumo
 (require '[cljs.nodejs :as nodejs])
 (def r (nodejs/require "rethinkdb"))
 (def db-name "eventstate")

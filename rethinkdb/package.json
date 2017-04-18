@@ -1,6 +1,12 @@
 {
   "name": "rethink-test",
   "scripts": {
-    "start": "./rethinktest.cljs"
+    "start": "./node_modules/lumo-cljs/bin/lumo rethinktest.cljs"
+  },
+  "dependencies": {
+    "rethinkdb": "^2.3.3"
+  },
+  "devDependencies": {
+    "lumo-cljs": "^1.3.0"
   }
 }
