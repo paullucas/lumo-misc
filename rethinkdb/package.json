@@ -1,0 +1,6 @@
+{
+  "name": "rethink-test",
+  "scripts": {
+    "start": "./rethinktest.cljs"
+  }
+}
