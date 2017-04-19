@@ -1,5 +1,13 @@
 * Quick Start
+
+Install [[https://www.npmjs.com/package/rethinkdb][rethinkdb client]] & [[https://github.com/anmonteiro/lumo][lumo]] packages locally
 #+BEGIN_SRC
 npm install
 npm start
+#+END_SRC
+
+Already installed [[https://github.com/anmonteiro/lumo][lumo]] globally? Only install  [[https://www.npmjs.com/package/rethinkdb][rethinkdb client]] package locally
+#+BEGIN_SRC
+npm install --production
+lumo rethinktest.cljs
 #+END_SRC
