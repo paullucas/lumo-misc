@@ -1,4 +1,5 @@
 (require '[cljs.nodejs :as nodejs])
+(def fs (nodejs/require "fs"))
 (def process (nodejs/require "process"))
 (def child-process (nodejs/require "child_process"))
 (def dgram (nodejs/require "dgram"))
@@ -38,13 +39,26 @@
              :args [{:type "integer" :value 1}]})
   "Abandoning nest...")
 
-(defn compile []
-  (child-process.exec "tr -d '\n' < synthDefs.scd | sclang"))
-
 (defn load-defs []
   (send-msg {:address "/d_loadDir"
              :args [{:type "string"
                      :value (str (.cwd process) "/synths/")}]}))
+
+(defn replace-newline [data]
+  (clojure.string.replace data #"\r\n|\n|\r" ""))
+
+(defn replace-deffile [data]
+  (clojure.string.replace data #"writeDefFile" (str "writeDefFile(\""
+                                                    (.cwd process)
+                                                    "/synths/\")")))
+
+(defn compile []
+  (.readFile
+   fs "synthDefs.scd" "utf8"
+   (fn [err data]
+     (let [synthdefs (-> (replace-newline data)
+                         (replace-deffile))]
+       (child-process.exec (str "echo '" synthdefs "' | sclang"))))))
 
 (compile)
 (load-defs)
