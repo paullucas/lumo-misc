@@ -1,0 +1,6 @@
+{
+  "name": "zmq-test",
+  "dependencies": {
+    "zeromq": "^4.2.3"
+  }
+}
