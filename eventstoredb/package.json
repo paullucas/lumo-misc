@@ -1,7 +1,7 @@
 {
   "name": "eventstoredb",
   "dependencies": {
-    "eventstore-node": "^0.1.0",
+    "node-eventstore-client": "^0.1.0",
     "uuid": "^3.0.1"
   }
 }
