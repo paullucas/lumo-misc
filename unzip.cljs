@@ -3,7 +3,9 @@
          '[child_process :refer [exec]]
          '[fs :refer [readdirSync]])
 
-(def files (readdirSync ""))
+(def files (-> cljs.core/*command-line-args*
+               first
+               readdirSync))
 
 (defn unzip [file]
   (exec (str "unzip " file) println))
