@@ -1,32 +1,39 @@
 #!/usr/bin/env lumo
-(require '[cljs.nodejs :as nodejs])
-(def https (nodejs/require "https"))
+(require 'lumo.core 'https)
 
-(defn get-url []
-  (let [args (subvec (js->clj js/process.argv) 3)]
-    (if (> (count args) 0)
-      (str "https://ipinfo.io/" (first args) "/json")
+(def url
+  (let [[ip] cljs.core/*command-line-args*]
+    (if ip
+      (str "https://ipinfo.io/" ip "/json")
       "https://ipinfo.io/json")))
 
 (defn create-template [json]
-  (let [data (js->clj (.parse js/JSON json) :keywordize-keys true)]
-    [{:name "IP Address" :value (:ip data)}
-     {:name "Hostname" :value (:hostname data)}
-     {:name "City" :value (:city data)}
-     {:name "Region" :value (:region data)}
-     {:name "Country" :value (:country data)}
-     {:name "Location" :value (:loc data)}
-     {:name "Organization" :value (:org data)}
-     {:name "Postal" :value (:postal data)}]))
+  (let [{:keys [ip
+                hostname
+                city
+                region
+                country
+                loc
+                org
+                postal]}
+        (-> (.parse js/JSON json)
+            (js->clj :keywordize-keys true))]
+    [{:name "IP Address"   :value ip}
+     {:name "Hostname"     :value hostname}
+     {:name "City"         :value city}
+     {:name "Region"       :value region}
+     {:name "Country"      :value country}
+     {:name "Location"     :value loc}
+     {:name "Organization" :value org}
+     {:name "Postal"       :value postal}]))
 
-(defn print-datum [data]
-  (println (str (:name data) ": " (:value data))))
+(defn print-datum [{n :name v :value}]
+  (println (str n ": " v)))
 
 (defn print-data [json]
-  (dorun
-   (map print-datum (create-template json))))
+  (dorun (map print-datum (create-template json))))
 
 (defn get-res [url]
-  (.get https url #(.on % "data" print-data)))
+  (https/get url #(.on % "data" print-data)))
 
-(get-res (get-url))
+(get-res url)

@@ -1,11 +1,10 @@
-#!/usr/bin/env lumo 
-(require '[cljs.nodejs :as nodejs])
-(def https (nodejs/require "https"))
+#!/usr/bin/env lumo
+(require 'lumo.core 'https)
 
-(.get
- https
- "..."
- (fn [res]
-   (.on res "data"
-        (fn [d]
-          (println (.toString d))))))
+(def url
+  (or (first cljs.core/*command-line-args*)
+      "https://duckduckgo.com"))
+
+(https/get url (fn [res]
+                 (.on res "data"
+                      #(println (.toString %)))))

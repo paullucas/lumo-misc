@@ -1,12 +1,8 @@
 #!/usr/bin/env lumo
-(require '[cljs.nodejs :as nodejs])
-(nodejs/enable-util-print!)
+(require '[lumo.core]
+         '[child_process :refer [spawn]])
 
-(def child-process (nodejs/require "child_process"))
-(def spawn (.-spawn child-process))
 (def ls (spawn "ls" ["-lh" "/usr"]))
 
 (.. ls -stdout
-    (on "data"
-        (fn [data]
-          (println "stdout: " data))))
+    (on "data" println))

@@ -1,6 +1,5 @@
 #!/usr/bin/env lumo
-(require '[cljs.nodejs :as nodejs])
-(def http (nodejs/require "http"))
+(require 'lumo.core 'http)
 
 (defn promise [executor]
   (new js/Promise executor))
@@ -18,18 +17,16 @@
                              :method "POST"
                              :headers {:Content-Type "application/json"
                                        :Content-Length (.byteLength js/Buffer json)}})
-           req (.request http
-                         options
-                         #(.on % "data" resolve))]
+           req (http/request options
+                             #(.on % "data" resolve))]
        (.write req json)
        (.end req)))))
 
 (defn get-req [url]
   (promise
    (fn [resolve]
-     (.get http
-           (str "http://localhost:3000" url)
-           #(.on % "data" resolve)))))
+     (http/get (str "http://localhost:3000" url)
+               #(.on % "data" resolve)))))
 
 (defn run-test [test-name post-url post-data test-url test-fn]
   (-> (post-req post-url post-data)
